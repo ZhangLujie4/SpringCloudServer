@@ -1,0 +1,15 @@
+# 高可用
+server:
+  port: 8082
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    #fetch-registry: false
+    service-url:
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      #defaultZone: http://peer1/eureka/,http://peer3/eureka/
+      defaultZone: http://peer1:8081/eureka/,http://peer3:8083/eureka/
+spring:
+  application:
+    name: eureka2

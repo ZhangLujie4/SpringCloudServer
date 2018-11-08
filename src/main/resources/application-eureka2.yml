@@ -1,0 +1,14 @@
+# 高可用
+server:
+  port: 8083
+eureka:
+  instance:
+      hostname: peer3
+  client:
+    #fetch-registry: false
+    service-url:
+      #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://peer1:8081/eureka/,http://peer2:8082/eureka/
+spring:
+  application:
+    name: eureka3
